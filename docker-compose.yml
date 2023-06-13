@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  cache:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    # environment:
+    #   - LIVE_SERVER_PORT=30120
+    #   - LISTEN_PORT=81
+    #   - LIVE_SERVER_IP=SETME
+    #   - SERVER_NAME=SETME
+    ports:
+      - 81:80
+      - 443:443
+      - 30120:30120
+    networks:
+      - cacheNet
+    volumes:
+      - cache:/srv/cache
+
+volumes:
+  cache:
+
+networks:
+  cacheNet:
+    driver: bridge

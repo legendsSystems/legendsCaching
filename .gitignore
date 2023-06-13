@@ -1,0 +1,6 @@
+.DS_Store
+setup.log
+error.log
+buildTagPush.sh
+.trunk
+.notebook

@@ -19,7 +19,26 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them.
 
 ```
-Give examples
+Install Docker
+https://docs.docker.com/engine/install/
+
+```
+```
+sudo apt install git nano docker-compose
+
+```
+
+## Set Environment Variables
+
+```
+export LIVE_SERVER_IP=1.2.3.4
+export LIVE_SERVER_PORT=30120
+```
+
+```
+git clone https://github.com/legendsSystems/legendsCaching.git
+cd legendsCaching
+docker compose up -d
 ```
 
 ### Installing

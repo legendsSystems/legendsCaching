@@ -106,10 +106,10 @@ cat error.log
 echo -e "${BLUE}End of errors${NC}"
 
 echo -e "${BLUE}Waiting for container to report Healthy"
-until [ "`docker inspect -f {{.State.Health.Status}} legendscaching-cache-1`"=="healthy" ]; do
-    sleep 0.1;
-done;
+while [ "`docker inspect -f {{.State.Health.Status}} legendscaching-cache-1`" != "healthy" ]; do     sleep 2; done
 
-echo -e "${BLUE}Printing Docker Status and Logs${NC}"
+echo -e "${BLUE}Printing Docker Status${NC}"
 sudo docker ps
+
+echo -e "${BLUE}Printing Docker Logs${NC}"
 sudo docker logs legendscaching-cache-1

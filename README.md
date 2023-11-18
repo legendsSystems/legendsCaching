@@ -1,6 +1,6 @@
-![legendsCaching](https://avatars.githubusercontent.com/u/127198147)
-
 <div align="center">
+
+![legendsCaching](https://avatars.githubusercontent.com/u/127198147)
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![GitHub Issues](https://img.shields.io/github/issues/legendsSystems/legendsCaching.svg)](https://github.com/legendsSystems/legendsCaching/issues)

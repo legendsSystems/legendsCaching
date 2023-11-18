@@ -8,7 +8,7 @@ function pause(){
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-BLUE='\033[0;32m'
+BLUE='\033[1;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
@@ -105,6 +105,11 @@ echo -e "${BLUE}If any build errors they will be listed below:${RED}"
 cat error.log
 echo -e "${BLUE}End of errors${NC}"
 
+echo -e "${BLUE}Waiting for container to report Healthy"
+until [ "`docker inspect -f {{.State.Health.Status}} legendscaching-cache-1`"=="healthy" ]; do
+    sleep 0.1;
+done;
+
 echo -e "${BLUE}Printing Docker Status and Logs${NC}"
-sudo docker ps -a
+sudo docker ps
 sudo docker logs legendscaching-cache-1

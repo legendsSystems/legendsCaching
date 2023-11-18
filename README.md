@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="[https://avatars.githubusercontent.com/u/127198147?s=400&u=0be28223c5ecb778863422a25321f5bab495fb6c&v=4](https://avatars.githubusercontent.com/u/127198147?s=400&u=0be28223c5ecb778863422a25321f5bab495fb6c&v=4)" alt="legendsSystems"></a>
+ <img width=200px height=200px src="[https://avatars.githubusercontent.com/u/127198147](https://avatars.githubusercontent.com/u/127198147)" alt="legendsSystems"></a>
 </p>
 
 <h3 align="center">legendsCaching</h3>

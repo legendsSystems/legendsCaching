@@ -11,9 +11,6 @@
 
 ---
 
-## About <a name = "about"></a>
-Nginx File Caching System for FiveM
-
 ## Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your vps for hosting files seperate from you game server.  It will load the files from your game server and cache them so they are ready to stream to players.

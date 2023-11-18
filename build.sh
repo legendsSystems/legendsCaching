@@ -81,6 +81,12 @@ sed -i "s/__LIVE_SERVER_PORT__/$LIVE_SERVER_PORT/g" docker-compose.yml
 sed -i "s/__NGINX_LISTEN_PORT__/$NGINX_LISTEN_PORT/g" docker-compose.yml
 sed -i "s/__CACHE_SERVER_FQDN_URL__/$CACHE_SERVER_FQDN_URL/g" docker-compose.yml
 
+echo "Setting sites-availble.conf values"
+sed -i "s/__LIVE_SERVER_IP__/$LIVE_SERVER_IP/g" files/sites-available.conf 
+sed -i "s/__LIVE_SERVER_PORT__/$LIVE_SERVER_PORT/g" files/sites-available.conf 
+sed -i "s/__NGINX_LISTEN_PORT__/$NGINX_LISTEN_PORT/g" files/sites-available.conf 
+sed -i "s/__CACHE_SERVER_FQDN_URL__/$CACHE_SERVER_FQDN_URL/g" files/sites-available.conf
+
 echo "Adding user to docker group"
 sudo usermod -aG docker $USER
 

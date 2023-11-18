@@ -15,7 +15,7 @@
 
 These instructions will get you a copy of the project up and running on your vps for hosting files seperate from you game server.  It will load the files from your game server and cache them so they are ready to stream to players.
 
-**Build script only compatible with ubuntu systems, should be used on a fresh dedicated box with minimal resources and high bandwidth/throughput**
+***Build script only compatible with ubuntu systems, should be used on a fresh dedicated box with minimal resources and high bandwidth/throughput***
 
 ## On VPS Dedicated Cache Server
 

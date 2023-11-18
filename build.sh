@@ -15,8 +15,8 @@ if [ -z "$LIVE_SERVER_IP" ]; then
     echo "Need to set LIVE_SERVER_IP"
     echo -n "Enter the live servers IP: "
     read liveIP
-    LIVE_SERVER_IP=liveIP
-fi  
+    $LIVE_SERVER_IP=liveIP
+fi
 echo "Detected IP Address is $LIVE_SERVER_IP"
 
 echo "Detecting Port"
@@ -24,7 +24,7 @@ if [ -z "$LIVE_SERVER_PORT" ]; then
     echo "Need to set LIVE_SERVER_PORT"
     echo -n "Enter the live servers Port: "
     read livePort
-    LIVE_SERVER_PORT=livePort
+    $LIVE_SERVER_PORT=livePort
 fi
 echo "Detected Port is $LIVE_SERVER_PORT"
 
@@ -33,7 +33,7 @@ if [ -z "$NGINX_LISTEN_PORT" ]; then
     echo "Need to set NGINX_LISTEN_PORT"
     echo -n "Enter the Nginx servers Port: "
     read nginxPort
-    NGINX_LISTEN_PORT=nginxPort
+    $NGINX_LISTEN_PORT=nginxPort
 fi
 echo "Detected Port is $NGINX_LISTEN_PORT"
 
@@ -42,7 +42,7 @@ if [ -z "$CACHE_SERVER_FQDN_URL" ]; then
     echo "Need to set CACHE_SERVER_FQDN_URL"
     echo -n "Enter the Cache servers FQDN(url): "
     read cacheURL
-    CACHE_SERVER_FQDN_URL=cacheURL
+    $CACHE_SERVER_FQDN_URL=cacheURL
 fi
 echo "Detected URL is $CACHE_SERVER_FQDN_URL"
 

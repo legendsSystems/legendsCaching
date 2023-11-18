@@ -92,7 +92,7 @@ echo "Adding user to docker group"
 sudo usermod -aG docker $USER
 
 echo "Starting caching container"
-docker compose up -d
+docker compose up --build -d
 
 echo "Installation has completed!!"
 

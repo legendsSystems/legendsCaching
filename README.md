@@ -1,3 +1,4 @@
+README.md
 # legends-nginx
 
 ## Table of Contents
@@ -12,53 +13,47 @@ Nginx File Caching System for FiveM
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) >
+
+**Build script only compatible with ubuntu systems, should be used on a fresh dedicated box with minimal resources and high bandwidth/throughput**
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+Install curl
 
 ```
-Install Docker
-https://docs.docker.com/engine/install/
-
+sudo apt install curl
 ```
-```
-sudo apt install git nano docker-compose
-
-```
-
-## Set Environment Variables
-
-```
-export LIVE_SERVER_IP=1.2.3.4
-export LIVE_SERVER_PORT=30120
-```
+Clone Repository
 
 ```
 git clone https://github.com/legendsSystems/legendsCaching.git
 cd legendsCaching
-docker compose up -d
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Execute build script
 
 ```
-Give the example
+sudo chmod +x build.sh && sudo ./build.sh
 ```
 
-And repeat
+Follow the prompts and enter the required info.  Script can be ran multiple times until successful if needed.
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
+Logout and back in to the ssh session to refresh perms or prepend sudo below
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+TO check if the conatiner booted properly
+
+```
+docker ps -a
+```
+
+Check logs
+
+```
+docker logs legendscaching-cache-1
+```

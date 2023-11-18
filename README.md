@@ -1,10 +1,5 @@
-<p align="center">
-  <a href="" rel="noopener">
- ![legendsCaching](https://avatars.githubusercontent.com/u/127198147)
-</p>
-
 <h3 align="center">legendsCaching</h3>
-
+![legendsCaching](https://avatars.githubusercontent.com/u/127198147)
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()

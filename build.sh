@@ -49,7 +49,7 @@ echo "Detected URL is $CACHE_SERVER_FQDN_URL"
 echo "Removing incompatible docker versions"
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg -y; done >>setup.log 2>>error.log
 
-echo "Adding Docker's official GPG key"
+echo "Adding Docker's official GPG key: if it seems to lock up here type a 'y' and hit enter"
 sudo rm /etc/apt/keyrings/docker.gpg >>setup.log 2>>error.log
 sudo apt-get update >>setup.log 2>>error.log
 sudo apt-get install ca-certificates curl gnupg -y >>setup.log 2>>error.log
@@ -92,8 +92,13 @@ echo "Adding user to docker group"
 sudo usermod -aG docker $USER >>setup.log 2>>error.log
 
 echo "Starting caching container"
-docker compose up --build -d
-docker ps -a
+sudo docker compose up --build -d
 
 echo "Installation has completed!!"
+echo "If any build errors they will be listed below: "
+cat error.log
+echo "End of errors"
 
+echo "printing docker status and logs"
+sudo docker ps -a
+sudo docker logs legendscaching-cache-1

@@ -50,10 +50,11 @@ echo "Removing incompatible docker versions"
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg -y; done
 
 echo "Adding Docker's official GPG key"
+sudo rm /etc/apt/keyrings/docker.gpg >>setup.log 2>>error.log
 sudo apt-get update >>setup.log 2>>error.log
 sudo apt-get install ca-certificates curl gnupg -y
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg 
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 echo "Adding the repository to Apt sources"

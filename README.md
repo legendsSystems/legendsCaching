@@ -40,7 +40,7 @@ Execute build script
 sudo chmod +x build.sh && sudo ./build.sh
 ```
 
-Follow the prompts and enter the required info.  Script can be ran multiple times until successful if needed.
+Follow the prompts and enter the required info.  Script can be ran multiple times until successful if needed, just do a 'git stash && git stash drop'.
 
 Logout and back in to the ssh session to refresh perms or prepend sudo below
 

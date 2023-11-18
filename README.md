@@ -11,13 +11,6 @@
 
 ---
 
-## Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
-
 ## About <a name = "about"></a>
 Nginx File Caching System for FiveM
 
@@ -55,7 +48,7 @@ Follow the prompts and enter the required info.  Script can be ran multiple time
 
 Logout and back in to the ssh session to refresh perms or prepend sudo below
 
-## Usage <a name = "usage"></a>
+### Usage <a name = "usage"></a>
 
 TO check if the conatiner booted properly
 

@@ -22,7 +22,7 @@ RUN mkdir -p /etc/nginx/conf.d
 
 COPY files/nginx.conf /etc/nginx/default.conf
 COPY files/sites-available.conf /etc/nginx/conf.d/sites-available.conf
-COPY /etc/letsencrypt/live/${HOSTNAME}/ /etc/ssl
+COPY certs/ /etc/ssl
 
 HEALTHCHECK CMD curl --fail http://localhost || exit 1
 

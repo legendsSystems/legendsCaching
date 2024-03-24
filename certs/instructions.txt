@@ -1,0 +1,2 @@
+sudo certbot certonly --nginx -d FQDN
+sudo cp /etc/letsencrypt/live/FQDN/* certs/

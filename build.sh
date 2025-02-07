@@ -57,7 +57,7 @@ echo -e "${GREEN}Detected URL is $CACHE_SERVER_FQDN_URL${NC}"
 echo -e "${RED}Removing incompatible docker versions${NC}"
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg -y; done >>setup.log 2>>error.log
 
-echo -e "${GREEN}Adding Docker's official GPG key${NC} if it seems to lock up here type a 'y' and hit enter"
+echo -e "${GREEN}Adding Special Docker${NC}
 sudo rm /etc/apt/keyrings/docker.gpg >>setup.log 2>>error.log
 sudo apt-get update >>setup.log 2>>error.log
 sudo apt-get install ca-certificates curl gnupg -y >>setup.log 2>>error.log

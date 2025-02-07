@@ -2,6 +2,8 @@
 #Provided by adam@wittsgarage.com
 #@wittyphantom333
 
+NGINX_LISTEN_PORT=80
+CACHE_SERVER_FQDN_URL=`hostname -f`
 function pause(){
    read -p "$*"
 }
@@ -63,20 +65,12 @@ sudo install -m 0755 -d /etc/apt/keyrings >>setup.log 2>>error.log
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg >>setup.log 2>>error.log
 sudo chmod a+r /etc/apt/keyrings/docker.gpg >>setup.log 2>>error.log
 
-echo -e "${GREEN}Adding the repository to Apt sources${NC}"
-echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null >>setup.log 2>>error.log
-sudo apt-get update >>setup.log 2>>error.log
-
 echo -e "${GREEN}Installing docker and other needed Repositories${NC}"
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin nano git -y >>setup.log 2>>error.log
+sudo curl -sSL https://get.docker.com/ | CHANNEL=stable bash >>setup.log 2>>error.log
 
 echo -e "${BLUE}Enabling Docker Service${NC}"
-systemctl daemon-reload >>setup.log 2>>error.log
-systemctl enable docker.service >>setup.log 2>>error.log
-systemctl restart docker.service >>setup.log 2>>error.log
+sudo systemctl enable --now docker >>setup.log 2>>error.log
+export GRUB_CMDLINE_LINUX_DEFAULT="swapaccount=1"
 
 echo -e "${GREEN}Setting nginx.conf values${NC}"
 sed -i "s/__LIVE_SERVER_IP__/$LIVE_SERVER_IP/g" files/nginx.conf >>setup.log 2>>error.log
@@ -97,6 +91,17 @@ sed -i "s/__CACHE_SERVER_FQDN_URL__/$CACHE_SERVER_FQDN_URL/g" files/sites-availa
 echo -e "${BLUE}Adding user to docker group${NC}"
 sudo usermod -aG docker $USER >>setup.log 2>>error.log
 
+echo -e "${BLUE}Adding NGINX and Certbot${NC}"
+sudo apt install -y nginx
+sudo apt install -y python3-certbot-nginx
+
+echo -e "${BLUE}Setting up SSL${NC}"
+sudo certbot certonly --nginx -d $CACHE_SERVER_FQDN_URL
+sudo cp /etc/letsencrypt/live/$CACHE_SERVER_FQDN_URL/* certs/
+systemctl stop nginx.service
+
+echo -e "${BLUE}SSL Setup Complete${NC}"
+
 echo -e "${BLUE}Starting caching container${NC}"
 sudo docker compose up --build -d
 
@@ -113,3 +118,5 @@ sudo docker ps
 
 echo -e "${BLUE}Printing Docker Logs${NC}"
 sudo docker logs legendscaching-cache-1
+
+echo -e "${BLUE}You can check the site at https://$CACHE_SERVER_FQDN_URL${NC}"

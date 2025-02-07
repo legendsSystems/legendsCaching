@@ -104,11 +104,11 @@ echo -e "${BLUE}SSL Setup Complete${NC}"
 
 echo -e "${GREEN}Setting sites-availble.conf values${NC}"
 sed -i "s/listen 80 ;/#listen [::]:80 ;/g" files/sites-available.conf >>setup.log 2>>error.log
-sed -i "s/listen [::]:80 ;/#listen [::]:80 ;/g" files/sites-available.conf >>setup.log 2>>error.log
+sed -i "s/listen \[::\]:80 ;/#listen \[::\]:80 ;/g" files/sites-available.conf >>setup.log 2>>error.log
 sed -i "s/#listen 443 ssl http2;/listen 443 ssl http2;/g" files/sites-available.conf >>setup.log 2>>error.log
 sed -i "s/#listen [::]:443 ssl http2;/listen [::]:443 ssl http2;/g" files/sites-available.conf >>setup.log 2>>error.log
-sed -i "s/#ssl_certificate /etc/ssl/cert.pem;/ssl_certificate /etc/ssl/cert.pem;/g" files/sites-available.conf >>setup.log 2>>error.log
-sed -i "s/#ssl_certificate_key /etc/ssl/privkey.pem;/ssl_certificate_key /etc/ssl/privkey.pem;/g" files/sites-available.conf >>setup.log 2>>error.log
+sed -i "s/#ssl_certificate \/etc\/ssl\/cert.pem;/ssl_certificate \/etc\/ssl\/cert.pem;/g" files/sites-available.conf >>setup.log 2>>error.log
+sed -i "s/#ssl_certificate_key \/etc\/ssl\/privkey.pem;/ssl_certificate_key \/etc\/ssl\/privkey.pem;/g" files/sites-available.conf >>setup.log 2>>error.log
 
 echo -e "${BLUE}Starting caching container${NC}"
 sudo docker compose up --build -d

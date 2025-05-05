@@ -96,7 +96,7 @@ sudo apt install -y nginx
 sudo apt install -y python3-certbot-nginx
 
 echo -e "${BLUE}Setting up SSL${NC}"
-sudo certbot certonly --nginx -d $CACHE_SERVER_FQDN_URL
+sudo certbot certonly --noninteractive --agree-tos --nginx -d $CACHE_SERVER_FQDN_URL -m "support@zedhosting.gg"
 sudo cp /etc/letsencrypt/live/$CACHE_SERVER_FQDN_URL/* certs/
 systemctl stop nginx.service
 

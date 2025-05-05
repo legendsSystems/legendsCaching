@@ -15,4 +15,4 @@
 
 These instructions will get you a copy of the project up and running on your vps for hosting files seperate from you game server.  It will load the files from your game server and cache them so they are ready to stream to players.
 
-***INSTRUCTIONS MOVED TO***   [![Docs](https://img.shields.io/badge/GitBook-663399?style=for-the-badge&logo=gitbook&logoColor=white)](https://docs.legends.systems/guides/legendscaching)
+***INSTRUCTIONS MOVED TO***   [![Docs](https://img.shields.io/badge/GitBook-663399?style=for-the-badge&logo=gitbook&logoColor=white)](https://legends.systems/guides/legendsCaching)
